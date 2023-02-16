@@ -3,6 +3,7 @@ package com.suromo.treasurebook
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -10,6 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.suromo.treasurebook.strategy.AllEvenStrategy
+import com.suromo.treasurebook.strategy.ITreasureStrategy
 import com.suromo.treasurebook.ui.theme.TreasureBookTheme
 
 class MainActivity : ComponentActivity() {
@@ -31,7 +34,23 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+
+    val strategy: ITreasureStrategy = AllEvenStrategy()
+    val list: List<Int> = listOf(1,2,3,4,5,6,7,8,9,0,12)
+    strategy.initOpenHistory(list)
+    strategy.initPeriod(7)
+    strategy.runStrategy()
+    val comparedList:List<Int> = strategy.getComparedResultList()
+    val phase = strategy.getMissPhaseNum()
+    val prediction = strategy.getNextPrediction()
+
+    Column {
+        Text(text = "comparedList $comparedList")
+        Text(text = "phase $phase")
+        Text(text = "prediction $prediction")
+    }
+
+
 }
 
 @Preview(showBackground = true)
