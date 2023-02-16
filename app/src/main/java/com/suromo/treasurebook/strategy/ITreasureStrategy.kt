@@ -12,9 +12,11 @@ interface ITreasureStrategy {
 
     fun initPeriod(period: Int)
 
+    fun getPeriodList(): List<Int>
+
     fun runStrategy()
 
-    fun getComparedResultList(): List<Int>
+    fun getComparedResultList(): List<Boolean>
 
     fun getMissPhaseNum():Int
 

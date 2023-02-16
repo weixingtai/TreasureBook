@@ -40,13 +40,15 @@ fun Greeting(name: String) {
     strategy.initOpenHistory(list)
     strategy.initPeriod(7)
     strategy.runStrategy()
-    val comparedList:List<Int> = strategy.getComparedResultList()
-    val phase = strategy.getMissPhaseNum()
+    val periodList:List<Int> = strategy.getPeriodList()
+    val comparedList:List<Boolean> = strategy.getComparedResultList()
+    val missPhaseNum = strategy.getMissPhaseNum()
     val prediction = strategy.getNextPrediction()
 
     Column {
+        Text(text = "periodList $periodList")
         Text(text = "comparedList $comparedList")
-        Text(text = "phase $phase")
+        Text(text = "missPhaseNum $missPhaseNum")
         Text(text = "prediction $prediction")
     }
 

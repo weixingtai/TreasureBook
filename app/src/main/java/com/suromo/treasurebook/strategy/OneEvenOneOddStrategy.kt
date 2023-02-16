@@ -1,12 +1,14 @@
 package com.suromo.treasurebook.strategy
 
+import kotlin.math.E
+
 /**
  * author : Samuel
- * e-mail : weixingtai@meizu.com
- * time   : 2023/2/16 下午7:24
+ * e-mail : xingtai.wei@icloud.com
+ * time   : 2023/2/17
  * desc   :
  */
-class AllEvenStrategy : BaseStrategy(),ITreasureStrategy {
+class OneEvenOneOddStrategy : BaseStrategy(),ITreasureStrategy {
 
     private lateinit var historyList: List<Int>
     private lateinit var periodList: List<Int>
@@ -26,8 +28,12 @@ class AllEvenStrategy : BaseStrategy(),ITreasureStrategy {
 
 
     override fun runStrategy() {
-        for(item in periodList){
-            comparedList.add(isEven(item))
+        for(index in periodList.indices){
+            if (index % 2 == 0){
+                comparedList.add(isEven(periodList[index]))
+            } else {
+                comparedList.add(isOdd(periodList[index]))
+            }
         }
     }
 
