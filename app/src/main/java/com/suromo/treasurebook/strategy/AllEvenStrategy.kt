@@ -1,5 +1,7 @@
 package com.suromo.treasurebook.strategy
 
+import com.suromo.treasurebook.R
+
 /**
  * author : Samuel
  * e-mail : weixingtai@meizu.com
@@ -11,6 +13,9 @@ class AllEvenStrategy : BaseStrategy(),ITreasureStrategy {
     private lateinit var historyList: List<Int>
     private lateinit var periodList: List<Int>
     private var comparedList: MutableList<Boolean> = mutableListOf()
+    override fun getStrategyName(): Int {
+        return R.string.strategy_all_even
+    }
 
     override fun initOpenHistory(historyList: List<Int>) {
         this.historyList = historyList
@@ -39,7 +44,7 @@ class AllEvenStrategy : BaseStrategy(),ITreasureStrategy {
         return comparedList.indexOf(false)+1
     }
 
-    override fun getNextPrediction(): Int {
+    override fun getNextRecommend(): Int {
         return EVEN
     }
 

@@ -11,6 +11,9 @@ class OneOddOneEvenStrategy : BaseStrategy(),ITreasureStrategy {
     private lateinit var historyList: List<Int>
     private lateinit var periodList: List<Int>
     private var comparedList: MutableList<Boolean> = mutableListOf()
+    override fun getStrategyName(): Int {
+        return 0
+    }
 
     override fun initOpenHistory(historyList: List<Int>) {
         this.historyList = historyList
@@ -43,7 +46,7 @@ class OneOddOneEvenStrategy : BaseStrategy(),ITreasureStrategy {
         return comparedList.indexOf(false)+1
     }
 
-    override fun getNextPrediction(): Int {
+    override fun getNextRecommend(): Int {
         return EVEN
     }
 

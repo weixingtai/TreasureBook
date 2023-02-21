@@ -11,6 +11,9 @@ class AllOddStrategy : BaseStrategy(),ITreasureStrategy {
     private lateinit var historyList: List<Int>
     private lateinit var periodList: List<Int>
     private lateinit var comparedList: MutableList<Boolean>
+    override fun getStrategyName(): Int {
+        return 0
+    }
 
     override fun initOpenHistory(historyList: List<Int>) {
         this.historyList = historyList
@@ -39,7 +42,7 @@ class AllOddStrategy : BaseStrategy(),ITreasureStrategy {
         return comparedList.indexOf(true)+1
     }
 
-    override fun getNextPrediction(): Int {
+    override fun getNextRecommend(): Int {
         return EVEN
     }
 

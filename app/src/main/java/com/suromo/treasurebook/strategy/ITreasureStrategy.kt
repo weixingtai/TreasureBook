@@ -8,6 +8,8 @@ package com.suromo.treasurebook.strategy
  */
 interface ITreasureStrategy {
 
+    fun getStrategyName(): Int
+
     fun initOpenHistory(historyList: List<Int>)
 
     fun initPeriod(period: Int)
@@ -20,6 +22,6 @@ interface ITreasureStrategy {
 
     fun getMissPhaseNum():Int
 
-    fun getNextPrediction():Int
+    fun getNextRecommend():Int
 
 }
