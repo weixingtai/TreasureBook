@@ -53,6 +53,7 @@ dependencies {
     // liveData
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
     implementation 'com.kunminx.archi:unpeek-livedata:4.4.1-beta1'
+    implementation project(path: ':database')
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
